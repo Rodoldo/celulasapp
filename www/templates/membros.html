@@ -1,10 +1,11 @@
-<ion-view title="Membros" id="page2" class=" ">
+<ion-view title="Membros" id="page2" >
     <ion-content padding="true" class="has-header">
+      <a ui-sref="menu.cADASTRO" id="membros-button1" class=" button button-positive  button-block ">Novo</a>
+
         <ion-list id="membros-list1" class=" ">
-            <ion-item class="item-thumbnail-left  " id="membros-list-item9">
-                <h2>Paulo rodolfo</h2>
+            <ion-item ng-repeat="ac in valores" id="membros-list-item9">
+                <h2>{{ac.nome}}</h2>
             </ion-item>
         </ion-list>
-        <a ui-sref="menu.cADASTRO" id="membros-button1" class=" button button-positive  button-block ">Novo</a>
     </ion-content>
 </ion-view>
