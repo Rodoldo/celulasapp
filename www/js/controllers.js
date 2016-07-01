@@ -15,13 +15,11 @@ angular.module('app.controllers', [])
 .controller('membrosCtrl', function($scope) {
 
       var pessoas2 = localStorage.getItem('peoa');
+      pessoas2 =   JSON.parse(pessoas2)
 
-      pessoas2.substr(1,(pessoas2.length - 1));
-      pessoa2 = pessoas2.replace("null,", "");
-      pessoa2 = "["+pessoa2+"]";
-      $scope.valores =  JSON.parse(pessoa2);
-      //console.log("aaa");
-      
+      $scope.valores =  pessoas2;
+      console.log(pessoas2);
+
 
 })
 
@@ -38,15 +36,7 @@ angular.module('app.controllers', [])
 
 
     $scope.addPessoa = function (cadastro){
-
-
-
-        if(localStorage.getItem('peoa') != null){
-          var pessoas2 = localStorage.getItem('peoa')+","+JSON.stringify(cadastro);
-        }else{
-          var pessoas2 = JSON.stringify(localStorage.getItem('peoa'));
-        }
-
+        var pessoas2 = angular.toJson(cadastro);
         localStorage.setItem("peoa", pessoas2);
         //  console.log($scope.cadastro);
 
